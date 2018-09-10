@@ -1,0 +1,376 @@
+@import "brl-font-icons-variables";
+
+@font-face {
+  font-family: "brl-font-icons";
+  src: url('/fonts/brl-font-icons.eot');
+  src: url('/fonts/brl-font-icons.eot?#iefix') format('eot'),
+    url('/fonts/brl-font-icons.woff2') format('woff2'),
+    url('/fonts/brl-font-icons.woff') format('woff'),
+    url('/fonts/brl-font-icons.ttf') format('truetype'),
+    url('/fonts/brl-font-icons.svg#brl-font-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin icon($name) {
+  &:after {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'brl-font-icons' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    
+    content: $name;
+  }
+}
+
+.brl-icon-add {
+  @include icon($brl-icon-add);
+}
+.brl-icon-analyze {
+  @include icon($brl-icon-analyze);
+}
+.brl-icon-api {
+  @include icon($brl-icon-api); 
+}
+.brl-icon-archive {
+  @include icon($brl-icon-archive); 
+}
+.brl-icon-arrow-down {
+  @include icon($brl-icon-arrow-down); 
+}
+.brl-icon-arrow-left {
+  @include icon($brl-icon-arrow-left); 
+}
+.brl-icon-arrow-right {
+  @include icon($brl-icon-arrow-right); 
+}
+.brl-icon-arrow-up {
+  @include icon($brl-icon-arrow-up); 
+}
+.brl-icon-back {
+  @include icon($brl-icon-back); 
+}
+.brl-icon-briefcase {
+  @include icon($brl-icon-briefcase); 
+}
+.brl-icon-cancel {
+  @include icon($brl-icon-cancel); 
+}
+.brl-icon-chat {
+  @include icon($brl-icon-chat); 
+}
+.brl-icon-check-solid {
+  @include icon($brl-icon-check-solid); 
+}
+.brl-icon-check {
+  @include icon($brl-icon-check); 
+}
+.brl-icon-chop {
+  @include icon($brl-icon-chop);
+}
+.brl-icon-clock {
+  @include icon($brl-icon-clock); 
+}
+.brl-icon-close {
+  @include icon($brl-icon-close); 
+}
+.brl-icon-cluster {
+  @include icon($brl-icon-cluster); 
+}
+.brl-icon-code {
+  @include icon($brl-icon-code); 
+}
+.brl-icon-code-view {
+  @include icon($brl-icon-code-view); 
+}
+.brl-icon-cognitive {
+  @include icon($brl-icon-cognitive); 
+}
+.brl-icon-collapse-left {
+  @include icon($brl-icon-collapse-left); 
+}
+.brl-icon-collapse-right {
+  @include icon($brl-icon-collapse-right); 
+}
+.brl-icon-collapse-vert {
+  @include icon($brl-icon-collapse-vert); 
+}
+.brl-icon-company {
+  @include icon($brl-icon-company); 
+}
+.brl-icon-compare {
+  @include icon($brl-icon-compare); 
+}
+.brl-icon-comparison-equal {
+  @include icon($brl-icon-comparison-equal); 
+}
+.brl-icon-comparison-greater {
+  @include icon($brl-icon-comparison-greater); 
+}
+.brl-icon-comparison-lower {
+  @include icon($brl-icon-comparison-lower); 
+}
+.brl-icon-computer {
+  @include icon($brl-icon-computer); 
+}
+.brl-icon-configure {
+  @include icon($brl-icon-configure); 
+}
+.brl-icon-copy {
+  @include icon($brl-icon-copy); 
+}
+.brl-icon-database {
+  @include icon($brl-icon-database); 
+}
+.brl-icon-demo {
+  @include icon($brl-icon-demo); 
+}
+.brl-icon-deploy {
+  @include icon($brl-icon-deploy); 
+}
+.brl-icon-document {
+  @include icon($brl-icon-document); 
+}
+.brl-icon-download {
+  @include icon($brl-icon-download); 
+}
+.brl-icon-download-cloud {
+  @include icon($brl-icon-download-cloud); 
+}
+.brl-icon-edit {
+  @include icon($brl-icon-edit); 
+}
+.brl-icon-edit-pencil {
+  @include icon($brl-icon-edit-pencil); 
+}
+.brl-icon-education {
+  @include icon($brl-icon-education); 
+}
+.brl-icon-entity {
+  @include icon($brl-icon-entity); 
+}
+.brl-icon-expand {
+  @include icon($brl-icon-expand); 
+}
+.brl-icon-expand-horiz {
+  @include icon($brl-icon-expand-horiz); 
+}
+.brl-icon-expand-vert {
+  @include icon($brl-icon-expand-vert); 
+}
+.brl-icon-eyeball {
+  @include icon($brl-icon-eyeball); 
+}
+.brl-icon-failed-solid {
+  @include icon($brl-icon-failed-solid); 
+}
+.brl-icon-failed {
+  @include icon($brl-icon-failed); 
+}
+.brl-icon-favorite {
+  @include icon($brl-icon-favorite); 
+}
+.brl-icon-filter {
+  @include icon($brl-icon-filter); 
+}
+.brl-icon-flow {
+  @include icon($brl-icon-flow); 
+}
+.brl-icon-folder {
+  @include icon($brl-icon-folder); 
+}
+.brl-icon-folder-solid {
+  @include icon($brl-icon-folder-solid); 
+}
+.brl-icon-gavel {
+  @include icon($brl-icon-gavel); 
+}
+.brl-icon-gift {
+  @include icon($brl-icon-gift); 
+}
+.brl-icon-go {
+  @include icon($brl-icon-go); 
+}
+.brl-icon-go-link {
+  @include icon($brl-icon-go-link); 
+}
+.brl-icon-help {
+  @include icon($brl-icon-help); 
+}
+.brl-icon-home {
+  @include icon($brl-icon-home); 
+}
+.brl-icon-icosahedron {
+  @include icon($brl-icon-icosahedron); 
+}
+.brl-icon-icosahedron-lg {
+  @include icon($brl-icon-icosahedron-lg); 
+}
+.brl-icon-info {
+  @include icon($brl-icon-info); 
+}
+.brl-icon-link {
+  @include icon($brl-icon-link); 
+}
+.brl-icon-link-external {
+  @include icon($brl-icon-link-external); 
+}
+.brl-icon-link-internal {
+  @include icon($brl-icon-link-internal); 
+}
+.brl-icon-loading {
+  @include icon($brl-icon-loading); 
+}
+.brl-icon-location {
+  @include icon($brl-icon-location); 
+}
+.brl-icon-lock {
+  @include icon($brl-icon-lock); 
+}
+.brl-icon-logout {
+  @include icon($brl-icon-logout); 
+}
+.brl-icon-mail {
+  @include icon($brl-icon-mail); 
+}
+.brl-icon-menu-bars {
+  @include icon($brl-icon-menu-bars); 
+}
+.brl-icon-menu-dots {
+  @include icon($brl-icon-menu-dots); 
+}
+.brl-icon-merge {
+  @include icon($brl-icon-merge); 
+}
+.brl-icon-microphone {
+  @include icon($brl-icon-microphone); 
+}
+.brl-icon-mobile-phone {
+  @include icon($brl-icon-mobile-phone); 
+}
+.brl-icon-move {
+  @include icon($brl-icon-move); 
+}
+.brl-icon-navigation {
+  @include icon($brl-icon-navigation); 
+}
+.brl-icon-notebook {
+  @include icon($brl-icon-notebook); 
+}
+.brl-icon-notification {
+  @include icon($brl-icon-notification); 
+}
+.brl-icon-office {
+  @include icon($brl-icon-office); 
+}
+.brl-icon-picture {
+  @include icon($brl-icon-picture); 
+}
+.brl-icon-pictures {
+  @include icon($brl-icon-pictures); 
+}
+.brl-icon-printer {
+  @include icon($brl-icon-printer); 
+}
+.brl-icon-rating {
+  @include icon($brl-icon-rating); 
+}
+.brl-icon-rating-solid {
+  @include icon($brl-icon-rating-solid); 
+}
+.brl-icon-refresh {
+  @include icon($brl-icon-refresh); 
+}
+.brl-icon-remove {
+  @include icon($brl-icon-remove); 
+}
+.brl-icon-response {
+  @include icon($brl-icon-response); 
+}
+.brl-icon-sale {
+  @include icon($brl-icon-sale); 
+}
+.brl-icon-save {
+  @include icon($brl-icon-save); 
+}
+.brl-icon-scissors {
+  @include icon($brl-icon-scissors);
+}
+.brl-icon-search {
+  @include icon($brl-icon-search); 
+}
+.brl-icon-selected {
+  @include icon($brl-icon-selected); 
+}
+.brl-icon-setting {
+  @include icon($brl-icon-setting); 
+}
+.brl-icon-share {
+  @include icon($brl-icon-share); 
+}
+.brl-icon-shuffle {
+  @include icon($brl-icon-shuffle); 
+}
+.brl-icon-sort {
+  @include icon($brl-icon-sort); 
+}
+.brl-icon-sort-down {
+  @include icon($brl-icon-sort-down); 
+}
+.brl-icon-sort-up {
+  @include icon($brl-icon-sort-up); 
+}
+.brl-icon-tag {
+  @include icon($brl-icon-tag); 
+}
+.brl-icon-template {
+  @include icon($brl-icon-template); 
+}
+.brl-icon-timer {
+  @include icon($brl-icon-timer); 
+}
+.brl-icon-trash {
+  @include icon($brl-icon-trash); 
+}
+.brl-icon-tutorial {
+  @include icon($brl-icon-tutorial); 
+}
+.brl-icon-unlock {
+  @include icon($brl-icon-unlock); 
+}
+.brl-icon-upload {
+  @include icon($brl-icon-upload); 
+}
+.brl-icon-upload-cloud {
+  @include icon($brl-icon-upload-cloud); 
+}
+.brl-icon-user {
+  @include icon($brl-icon-user); 
+}
+.brl-icon-user-solid {
+  @include icon($brl-icon-user-solid); 
+}
+.brl-icon-users {
+  @include icon($brl-icon-users); 
+}
+.brl-icon-warning {
+  @include icon($brl-icon-warning); 
+}
+.brl-icon-watch {
+  @include icon($brl-icon-watch); 
+}
+.brl-icon-workspace {
+  @include icon($brl-icon-workspace); 
+}
+.brl-icon-zoom-in {
+  @include icon($brl-icon-zoom-in); 
+}
+

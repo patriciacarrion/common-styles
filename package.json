@@ -1,0 +1,18 @@
+{
+  "name": "common-styles",
+  "version": "0.0.0",
+  "description": "Common CSS styles for BRL projects.",
+  "scripts": {
+    "build": "node-sass ./src -o ./out/src",
+    "start": "npm run build && concurrently \"npm run build -- --watch\" \"node server\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.ibm.com:brl-web-utils/common-styles.git"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "express": "^4.16.3",
+    "node-sass": "^4.9.0"
+  }
+}

@@ -1,0 +1,44 @@
+// HEADINGS 
+$jumbotron-size: 2rem !default;
+$x-large-title-size: 1.75rem !default;
+$large-title-size: 1.5rem !default;
+$medium-title-size: 1.25rem !default;
+$small-title-size: 1.125rem !default;
+$x-small-title-size: 1rem !default;
+
+// COLORS
+// tint/shade functions, to create hover, inactive and other lightening/darkening color effects
+@function tint($color, $percentage) {
+    @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+    @return mix(black, $color, $percentage);
+}
+
+$text-color: #343334 !default;
+
+$background-color: #fff !default;
+
+$primary-color: #1f57a4 !default;
+$secondary-color: #777677 !default;
+
+$info-color: #2d74da !default;
+$success-color: #34bc6e !default;
+$warning-color: #e39d14 !default;
+$error-color: #ff5c49 !default;
+
+// FONT WEIGHT
+$font-x-light: 100 !default;
+$font-light: 200 !default;
+$font-regular: 300 !default;
+$font-bold: 400 !default;
+$font-x-bold: 500 !default;
+
+// FORMS
+$default-border-radius: 0.3rem !default;
+$default-border-color: #c0bfc0 !default;
+$default-border-weight: 1px !default;
+
+$form-font-size: .9rem !default;
+$form-font-weight: $font-regular !default;

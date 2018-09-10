@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- BEGIN HEAD -->
+
+<head>
+    <meta charset="utf-8" />
+    <title>BRL Common Styles</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Guide for BRL Common Styles" name="description" />
+    <meta content="" name="author" />
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <link href="../../out/src/brl-buttons.css" rel="stylesheet" type="text/css" />
+    <link href="../../out/src/brl-forms.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN FONT ICON STYLES -->
+    <link href="/fonts-css/brl-font-icons.css" rel="stylesheet" type="text/css" />
+    <!-- END FONT ICON STYLES -->
+    <link href="../../out/src/guide/guide.css" rel="stylesheet" type="text/css" />
+</head>
+<!-- END HEAD -->
+
+<body class="brl-container">
+    <header class="common-styles brl-w-100 brl-p-3">
+        <div class="">BRL Common Styles</div>
+    </header>
+    <main class="brl-page-wrapper brl-py-5 brl-px-3">
+        <h1>BRL Common Styles</h1>
+        <section>
+            <h2>HTML Semantics</h2>
+            <p>
+                First things first: before starting to follow this BRL Common Styles Guide, we advise you on trying to use HTML5’s semantics.
+                Since this can be a nuanced subject - easily open to interpretation -, let's keep things simple: a semantic
+                element clearly describes its meaning to both browser and developer. To not overthink your markup, consider:
+            </p>
+            <ul>
+                <li>
+                    <span class="brl-font-bold">Non-semantic elements</span> like
+                    <code class="html">&lt;div></code> and
+                    <code class="html">&lt;span></code> tell nothing about its content, meaning they are generic block or inline containers usually used only
+                    for styling purposes.</p>
+                </li>
+                <li>
+                    <span class="brl-font-bold">Semantic elements</span>, on the other hand, clearly define its content and allow you to organize the
+                    document content into logical pieces. Some examples of semantic elements are the well known
+                    <code class="html">&lt;header></code>,
+                    <code class="html">&lt;nav></code>,
+                    <code class="html">&lt;main></code>,
+                    <code class="html">&lt;section></code>,
+                    <code class="html">&lt;article></code>,
+                    <code class="html">&lt;p></code>,
+                    <code class="html">&lt;footer></code>, among others.
+                </li>
+            </ul>
+        </section>
+        <hr />
+        <section id="basic-styling">
+            <h2>Basic Styling</h2>
+            <p>Use these initial CSS references to organize your basic layout.</p>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h3>Usage</h3>
+                    <p>Use
+                        <code class="css">brl-container</code> in main structures that can contain more than one element - e.g., a page wrapper and a sidebar.</p>
+                    <p>The
+                        <code class="css">brl-page-wrapper</code> should be inside a container and wraps around a specif content. Use it to constrain said content
+                        in the center of the page. This page wrapper uses media queries, which means it has a maximum width
+                        of 75% in a 1200px screen resolution, and the percentage enlarges as the screens get smaller.
+                    </p>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h3>Code &amp; Examples</h3>
+                    <p data-height="275" data-theme-id="33429" data-slug-hash="WJMXLY" data-default-tab="result" data-user="patriciacarrion"
+                        data-embed-version="2" data-pen-title="Container & Page Wrapper" data-preview="true" class="codepen">See the Pen
+                        <a href="https://codepen.io/patriciacarrion/pen/WJMXLY/">Container & Page Wrapper</a> by Patrícia Carrion (
+                        <a href="https://codepen.io/patriciacarrion">@patriciacarrion</a>) on
+                        <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </section>
+        <hr />
+        <section id="sizing">
+            <h2>Sizing</h2>
+            <p>
+                <span class="brl-font-bold">Width</span> and
+                <span class="brl-font-bold">height</span> utilities cover sizing for 25%, 50%, 75%, and 100%.</p>
+            <p>Use
+                <span class="brl-font-bold">brl-h</span> or
+                <span class="brl-font-bold">brl-w</span> (for height or width), adding the sizing preference separated by a dash (-). You can also use
+                <span class="brl-font-bold">brl-maxh</span> or
+                <span class="brl-font-bold">brl-maxw</span> for maximum height/width (only for 100%). Examples:
+                <code class="css">brl-w-100</code>, for width of 100%;
+                <code class="css">brl-w-75</code>, for width of 75%, and from then on.</p>
+        </section>
+        <hr />
+        <section id="spacing">
+            <h2>Spacing</h2>
+            <p>These are spacing utilities that define
+                <span class="brl-font-bold">margins</span> and
+                <span class="brl-font-bold">paddings</span>. The classes are named using the format
+                <code class="css">brl-{property}{sides}-{size}</code>. Begin using
+                <code class="css">brl-m-</code> or
+                <code class="css">brl-p-</code> (for margin or padding).</p>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <p>Consider the
+                        <dfn>sides</dfn> as follow:</p>
+                    <ul>
+                        <li>
+                            <span class="brl-font-bold">t</span> - top;</li>
+                        <li>
+                            <span class="brl-font-bold">b</span> - bottom;</li>
+                        <li>
+                            <span class="brl-font-bold">l</span> - left;</li>
+                        <li>
+                            <span class="brl-font-bold">r</span> - right;</li>
+                        <li>
+                            <span class="brl-font-bold">x</span> - both *-left and *-right;</li>
+                        <li>
+                            <span class="brl-font-bold">y</span> - both *-top and *-bottom;</li>
+                        <li>
+                            <dfn>blank</dfn> - for classes that set a margin or padding on all 4 sides of the element.</li>
+                    </ul>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <p>Consider the
+                        <dfn>sizes</dfn>:</p>
+                    <ul>
+                        <li>
+                            <span class="brl-font-bold">0</span> - to eliminate the margin or padding by setting it to 0;</li>
+                        <li>
+                            <span class="brl-font-bold">1</span>
+                        </li>
+                        <li>
+                            <span class="brl-font-bold">2</span>
+                        </li>
+                        <li>
+                            <span class="brl-font-bold">3</span>
+                        </li>
+                        <li>
+                            <span class="brl-font-bold">4</span>
+                        </li>
+                        <li>
+                            <span class="brl-font-bold">5</span>
+                        </li>
+                        <li>
+                            <span class="brl-font-bold">auto</span> - for classes that set the margin to auto.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h3>Usage</h3>
+                    <p>
+                        <span class="brl-font-bold">Margin</span> and
+                        <span class="brl-font-bold">padding</span> helpers consist of several classes ranging from 0 to 5, in which the values are set
+                        in
+                        <code class="value">rem</code> units. Use them to set margin and padding throughout your layout. As examples, consider:
+                        <code class="css">brl-m-1</code>, to set margin with values of 1 in all sides; or
+                        <code class="css">brl-pb-1</code>, to set a value of 1 in the padding-bottom, and so.
+                    </p>
+                    <div class="brl-alert alert-default brl-my-3">
+                        <span class="brl-icon-gift brl-mr-1"></span>
+                        <strong>Tip:</strong> Use
+                        <code class="css">brl-mx-auto</code> to horizontally centralize a content in a box.
+                    </div>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h3>Code &amp; Examples</h3>
+                    <p data-height="275" data-theme-id="33429" data-slug-hash="dedeGV" data-default-tab="result" data-user="patriciacarrion"
+                        data-embed-version="2" data-pen-title="Spacing - Margin & Padding Helpers" data-preview="true" class="codepen">See the Pen
+                        <a href="https://codepen.io/patriciacarrion/pen/dedeGV/">Spacing - Margin & Padding Helpers</a> by Patrícia Carrion (
+                        <a href="https://codepen.io/patriciacarrion">@patriciacarrion</a>) on
+                        <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <p>
+                        Spacing utilities also consider
+                        <span class="brl-font-bold">negative margins</span>. Negative margins are named just like the regular margins, but with an extra
+                        dash (-). By using
+                        <code class="css">brl-mx--3</code>, e.g., you would set a value of -3 on the
+                        <span class="brl-font-bold">x</span> axis.
+                    </p>
+                    <div class="brl-alert alert-default brl-my-3">
+                        <span class="brl-icon-gift brl-mr-1"></span>
+                        <strong>Tip:</strong> Use negative margins to offset the difference between the margins applied in the
+                        <code class="css">brl-page-wrapper</code> and the margins of its children.
+                    </div>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <p data-height="275" data-theme-id="33429" data-slug-hash="erVQPq" data-default-tab="result" data-user="patriciacarrion"
+                        data-embed-version="2" data-pen-title="Negative Margins" data-preview="true" class="codepen">See the Pen
+                        <a href="https://codepen.io/patriciacarrion/pen/erVQPq/">Negative Margins</a> by Patrícia Carrion (
+                        <a href="https://codepen.io/patriciacarrion">@patriciacarrion</a>) on
+                        <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+        </section>
+        <hr />
+        <section id="typography">
+            <h2>Typography</h2>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h1 class="brl-jumbotron">H1 or BRL Jumbotron</h1>
+                    <h2 class="brl-x-large-title">H2 or BRL X Large Title</h2>
+                    <h3 class="brl-large-title">H3 or BRL Large Title</h3>
+                    <h4 class="brl-medium-title">H1 or BRL Medium Title</h4>
+                    <h5 class="brl-small-title">H2 or BRL Small Title</h5>
+                    <h6 class="brl-x-small-title">H3 or BRL X Small Title</h6>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                </div>
+            </div>
+
+        </section>
+        <section id="flexbox">
+            <h2>Flexbox</h2>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h3>Usage</h3>
+                    <h4>Flex Containers - Classes for the
+                        <dfn>Parent</dfn> elements</h4>
+                    <p>
+                        You can use
+                        <code class="css">brl-flex</code> to create a flex container and enable a flex context for all its direct children. By default, it
+                        aligns the flex item(s) along the main axis, i.e., horizontally.
+                    </p>
+                    <p>
+                        Use
+                        <code class="css">brl-hbox</code> or
+                        <code class="css">brl-vbox</code> to organize its children items along the main or cross axis:
+                    </p>
+                    <ul>
+                        <li>
+                            <span class="brl-font-bold">Main axis</span> - horizontally, from left to right: use
+                            <code class="css">brl-hbox</code>;
+                        </li>
+                        <li>
+                            <span class="brl-font-bold">Cross axis</span> - vertically, from top to bottom: use
+                            <code class="css">brl-vbox</code>;
+                        </li>
+                    </ul>
+                    <div class="brl-alert alert-default brl-my-3">
+                        <span class="brl-icon-gift brl-mr-1"></span>
+                        <strong>Tip:</strong> Add the
+                        <code class="css">reverse</code> class to lay out the flex items reversely in both directions. Row-reverse (
+                        <code class="css">brl-hbox reverse</code>) will align the items from right to left, and column-reverse (
+                        <code class="css">brl-vbox reverse</code>), from bottom to top.
+                    </div>
+                    <p>Flex utilities can help you to make a container in which a main
+                        <code class="html">&lt;div></code> with scrollable content has a fixed top and/or bottom bar (see
+                        <dfn>Code &amp; Examples</dfn>). For that:
+                    </p>
+                    <ul>
+                        <li>
+                            The outer
+                            <code class="html">&lt;div></code> must be defined as a flex container with a vertical column - use
+                            <code class="css">brl-vbox</code>;</li>
+                        <li>
+                            The outer
+                            <code class="html">&lt;div></code>'s maximum height must be set;</li>
+                        <li>
+                            Use
+                            <code class="css">brl-main-content</code> for the inner
+                            <code class="html">&lt;div></code> with scrollable content;</li>
+                        <li>
+                            You can define a top bar, a bottom bar, or both as options for the fixed bars.</li>
+                    </ul>
+
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h3>Code &amp; Examples</h3>
+                    <p data-height="275" data-theme-id="33429" data-slug-hash="zjWmKE" data-default-tab="result" data-user="patriciacarrion"
+                        data-embed-version="2" data-pen-title="Flexbox - Top/bottom bar with scrollable content" data-preview="true"
+                        class="codepen">See the Pen
+                        <a href="https://codepen.io/patriciacarrion/pen/zjWmKE/">Flexbox - Top/bottom bar with scrollable content</a> by Patrícia Carrion (
+                        <a href="https://codepen.io/patriciacarrion">@patriciacarrion</a>) on
+                        <a href="https://codepen.io">CodePen</a>.</p>
+                    <script async src="https://static.codepen.io/assets/embed/ei.js"></script>
+                </div>
+            </div>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h4>Flex Items - Classes for the
+                        <dfn>Child</dfn> elements</h4>
+                    <p>Include here classes for children.</p>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+
+                </div>
+            </div>
+        </section>
+        <hr />
+        <section id="alerts">
+            <h2>Alerts</h2>
+            <p>Alert messages must be used to provide contextual feedback for typical user actions, i.e., keep users informed
+                of important and sometimes time-sensitive changes.</p>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h3>Usage</h3>
+                    <p>Start styling your alerts with
+                        <code class="css">brl-alert</code>. You can add
+                        <code class="css">brl-alert-close</code> and an optional dismiss button for dismissal alerts.
+                    </p>
+                    <p>Following the initial styling, you can differentiate your alert messages between at least four types
+                        of messages:</p>
+                    <ul>
+                        <li>
+                            <span class="brl-font-bold">Info messages</span> (add
+                            <code class="css">brl-alert-info</code>) let user know that something has happened in the system, but that this something is nothing
+                            out of the ordinary or unexpected. This type of message is not usually bound to a mandatory user
+                            interaction.
+                            </p>
+                        </li>
+                        <li>
+                            <span class="brl-font-bold">Success messages</span> (add
+                            <code class="css">brl-alert-success</code>) make it obvious to users that their interaction with the application was successful.</p>
+
+                        </li>
+                        <li>
+                            <span class="brl-font-bold">Warning messages</span> (add
+                            <code class="css">brl-alert-warning</code>) should appear when users are about to do something that can result in major changes or when
+                            the result of an action is unexpected - but isn't an error.</p>
+                        </li>
+                        <li>
+                            <span class="brl-font-bold">Error messages</span> (add
+                            <code class="css">brl-alert-error</code>) are used to inform users that something went wrong and, preferably, help them to fix it.</p>
+                        </li>
+                    </ul>
+                    <div class="brl-alert alert-default brl-my-3">
+                        <span class="brl-icon-gift brl-mr-1"></span>
+                        <strong>Tip:</strong> Style your alert message according to its type and severity. Also, when the user is
+                        required to do something in response to an alert, let them know what they need to do and make that
+                        task as easy as possible. Think about how much context to provide with your message.
+                    </div>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h3>Code &amp; Examples</h3>
+                    <pre class="show-code brl-mb-3 brl-p-1">
+<code><span class="comment">// Success alert</span>
+<span class="html">&lt;div</span> <span class="value">class</span>=<span class="css">"brl-alert brl-alert-success"</span><span class="html">></span>
+    <span class="html">&lt;strong></span>Success!<span class="html">&lt;/strong></span> The changes have been saved.
+<span class="html">&lt;/div></span>
+    
+<span class="comment">// Success alert w/ dismiss button</span>
+<span class="html">&lt;div</span> <span class="value">class</span>=<span class="css">"brl-alert brl-alert-success brl-alert-close"</span><span class="html">></span>
+    <span class="html">&lt;strong></span>Success!<span class="html">&lt;/strong></span> The changes have been saved.
+    <span class="html">&lt;button</span> <span class="value">type</span>=<span class="css">"button"</span> <span class="value">class</span>=<span class="css">"icon-close"</span><span class="html">></span>
+    <span class="html">&lt;/button</span><span class="html">></span>
+<span class="html">&lt;/div></span>
+</code></pre>
+                    <div class="brl-alert brl-alert-info brl-alert-close brl-mb-3">
+                        <strong>Info!</strong> You have 20 unread notifications.
+                        <button type="button" class="brl-icon-close"></button>
+                    </div>
+                    <div class="brl-alert brl-alert-success brl-alert-close brl-mb-3">
+                        <strong>Success!</strong> The changes have been saved.
+                        <button type="button" class="brl-icon-close"></button>
+                    </div>
+                    <div class="brl-alert brl-alert-warning brl-alert-close brl-mb-3">
+                        <strong>Warning!</strong> Your monthly traffic is reaching limit.
+                        <button type="button" class="brl-icon-close"></button>
+                    </div>
+                    <div class="brl-alert brl-alert-error brl-alert-close brl-mb-3">
+                        <strong>Error!</strong> Please enter a valid ID.
+                        <button type="button" class="brl-icon-close"></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <hr />
+        <section id="buttons">
+            <h2>Buttons</h2>
+            <p>
+                The
+                <code class="css">.brl-btn-</code> classes are designed to be used with the
+                <code class="html">&lt;button></code> element. Start styling your buttons according with the guidelines as follow.
+            </p>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h3>Usage</h3>
+                    <h4>Primary &amp; Secondary Colors Action Buttons</h4>
+                    <p>
+                        <span class="brl-font-bold">Primary buttons</span> identify the main action in a main set of buttons, and use a
+                        <code class="value">$primary-color</code> as color variable. Color variables may change depending of the project. Start styling primary buttons
+                        by using
+                        <code class="css">brl-btn-primary</code>.</p>
+                    <p>
+                        <span class="brl-font-bold">Secondary buttons</span> are the main buttons in a secondary set of buttons. They use a
+                        <code class="value">$secondary-color</code> as color variable, and are set with the
+                        <code class="css">brl-btn-secondary</code> class.</p>
+                    <div class="brl-alert alert-default brl-my-3">
+                        <span class="brl-icon-gift brl-mr-1"></span>
+                        <strong>Tip:</strong> Setting your project colors to primary and secondary color variables allow you to use
+                        your color theming for UI elements.
+                    </div>
+                    <p>All buttons contain specific styles for
+                        <span class="brl-font-bold">disabled</span> and
+                        <span class="brl-font-bold">active</span> status. To make buttons look inactive, add the
+                        <code class="value">disabled</code> boolean attribute. Active buttons require you to add the
+                        <code class="css">active</code> class.</li>
+                    </p>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h3>Code &amp; Examples</h3>
+                    <pre class="show-code brl-mb-3 brl-p-1"><code><span class="comment">// Primary Button</span>
+<span class="html">&lt;button</span> <span class="value">type</span>=<span class="css">"button"</span> <span class="value">class</span>=<span class="css">"brl-btn-primary"</span><span class="html">></span>
+    Primary Button
+<span class="html">&lt;/button></span>
+    
+<span class="comment">// Secondary Button</span>
+<span class="html">&lt;button</span> <span class="value">type</span>=<span class="css">"button"</span> <span class="value">class</span>=<span class="css">"brl-btn-secondary"</span><span class="html">></span>
+    Secondary Button
+<span class="html">&lt;/button></span>
+    
+<span class="comment">// Disabled Button</span>
+<span class="html">&lt;button</span> <span class="value">type</span>=<span class="css">"button"</span> <span class="value">class</span>=<span class="css">"brl-btn-primary"</span> <span class="value">disabled</span><span class="html">></span>
+    Disabled
+<span class="html">&lt;/button></span>
+    
+<span class="comment">// Active Button</span>
+<span class="html">&lt;button</span> <span class="value">type</span>=<span class="css">"button"</span> <span class="value">class</span>=<span class="css">"brl-btn-primary active"</span><span class="html">></span>
+    Active
+<span class="html">&lt;/button></span></code></pre>
+                    <div class="brl-hbox brl-mb-2">
+                        <button class="brl-btn-primary brl-mr-2">Primary Button</button>
+                        <button class="brl-btn-primary brl-mr-2" disabled>Disabled</button>
+                        <button class="brl-btn-primary active brl-mr-2">Active</button>
+                    </div>
+                    <div class="brl-hbox brl-mb-2">
+                        <button class="brl-btn-secondary brl-mr-2">Secondary Button</button>
+                        <button class="brl-btn-secondary brl-mr-2" disabled>Disabled</button>
+                        <button class="brl-btn-secondary active brl-mr-2">Active</button>
+                    </div>
+                </div>
+            </div>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h4>Outline Action Buttons</h4>
+                    <p>
+                        <span class="brl-font-bold">Outline buttons</span> identify secondary actions and have a weaker visual weight. Both primary and
+                        secondary colors action buttons have their outlined version. To use them, add
+                        <code class="css">brl-btn-outline</code>.
+                    </p>
+                    <p>
+                        In a primary set of buttons, an outline button is secondary to its primary filled button. Thus, consider:
+                    </p>
+                    <div class=" brl-mb-3">
+                        <button class="brl-btn-primary brl-btn-outline brl-btn-icon brl-icon-trash brl-mr-2">Discard</button>
+                        <button class="brl-btn-primary brl-btn-icon brl-icon-save brl-mr-2">Save</button>
+                    </div>
+                    <p>
+                        However, in cases when an outline button has its own secondary action, use an outlined secondary color action button.</p>
+                    <div class="brl-hbox brl-mb-3">
+                        <button class="brl-btn-secondary brl-btn-outline brl-btn-icon brl-icon-remove brl-mr-2">Remove</button>
+                        <button class="brl-btn-primary brl-btn-outline brl-btn-icon brl-icon-add brl-mr-2">Add</button>
+                    </div>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <pre class="show-code brl-mb-3 brl-p-1"><code><span class="html">&lt;button</span> <span class="value">type</span>=<span class="css">"button"</span> <span class="value">class</span>=<span class="css">"brl-btn-primary brl-btn-outline"</span><span class="html">></span>
+    Outline Primary Button
+<span class="html">&lt;/button></span></code></pre>
+                    <div class="brl-hbox brl-mb-2">
+                        <button class="brl-btn-primary brl-btn-outline brl-mr-2">Primary Button</button>
+                        <button class="brl-btn-primary brl-btn-outline brl-mr-2" disabled>Disabled</button>
+                        <button class="brl-btn-primary brl-btn-outline active brl-mr-2">Active</button>
+                    </div>
+                    <div class="brl-hbox brl-mb-2">
+                        <button class="brl-btn-secondary brl-btn-outline brl-mr-2">Secondary Button</button>
+                        <button class="brl-btn-secondary brl-btn-outline brl-mr-2" disabled>Disabled</button>
+                        <button class="brl-btn-secondary brl-btn-outline active brl-mr-2">Active</button>
+                    </div>
+                </div>
+            </div>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h4>Ghost Action Buttons</h4>
+                    <p>
+                        <span class="brl-font-bold">Ghost buttons</span> also identify secondary actions. To use them, add
+                        <code class="css">brl-btn-ghost</code>.
+                    </p>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <div class="brl-hbox brl-mb-2">
+                        <button class="brl-btn-primary brl-btn-ghost brl-mr-2">Primary Button</button>
+                        <button class="brl-btn-primary brl-btn-ghost brl-mr-2" disabled>Disabled</button>
+                        <button class="brl-btn-primary brl-btn-ghost active brl-mr-2">Active</button>
+                    </div>
+                    <div class="brl-hbox brl-mb-2">
+                        <button class="brl-btn-secondary brl-btn-ghost brl-mr-2">Secondary Button</button>
+                        <button class="brl-btn-secondary brl-btn-ghost brl-mr-2" disabled>Disabled</button>
+                        <button class="brl-btn-secondary brl-btn-ghost active brl-mr-2">Active</button>
+                    </div>
+                </div>
+            </div>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h4>Labeled Icon Buttons</h4>
+                    <p>
+                        To add font icons to your buttons, add
+                        <code class="css">brl-btn-icon</code>, followed by
+                        <code class="css">brl-icon-[insert icon name]</code> - see the list of
+                        <a href="/fonts-css/demo.html" target="_blank">available icons</a>.
+                    </p>
+                    <p>
+                        Note that
+                        <code class="css">brl-btn-icon</code> only works if added to primary/secondary buttons and their outlined versions.
+                    </p>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <pre class="show-code brl-mb-3 brl-p-1"><code><span class="html">&lt;button</span> <span class="value">type</span>=<span class="css">"button"</span> <span class="value">class</span>=<span class="css">"brl-btn-primary brl-btn-icon icon-save"</span><span class="html">></span>
+    Label
+<span class="html">&lt;/button></span></code></pre>
+                    <div class="brl-hbox brl-mb-2">
+                        <button class="brl-btn-primary brl-btn-icon brl-icon-save brl-mr-2">Label</button>
+                        <button class="brl-btn-primary brl-btn-icon brl-icon-save brl-mr-2" disabled>Disabled</button>
+                        <button class="brl-btn-primary brl-btn-icon brl-icon-save active brl-mr-2">Active</button>
+                    </div>
+                    <div class="brl-hbox brl-mb-2">
+                        <button class="brl-btn-primary brl-btn-outline brl-btn-icon brl-icon-trash brl-mr-2">Label</button>
+                        <button class="brl-btn-primary brl-btn-outline brl-btn-icon brl-icon-trash brl-mr-2" disabled>Disabled</button>
+                        <button class="brl-btn-primary brl-btn-outline brl-btn-icon brl-icon-trash active brl-mr-2">Active</button>
+                    </div>
+                    <div class="brl-hbox brl-mb-2">
+                        <button class="brl-btn-primary brl-btn-ghost brl-btn-icon brl-icon-add brl-mr-2">Label</button>
+                        <button class="brl-btn-primary brl-btn-ghost brl-btn-icon brl-icon-add brl-mr-2" disabled>Disabled</button>
+                        <button class="brl-btn-primary brl-btn-ghost brl-btn-icon brl-icon-add active brl-mr-2">Active</button>
+                    </div>
+                    <div class="brl-hbox brl-mb-2">
+                        <button class="brl-btn-secondary brl-btn-icon brl-icon-save brl-mr-2">Label</button>
+                        <button class="brl-btn-secondary brl-btn-icon brl-icon-save brl-mr-2" disabled>Disabled</button>
+                        <button class="brl-btn-secondary brl-btn-icon brl-icon-save active brl-mr-2">Active</button>
+                    </div>
+                    <div class="brl-hbox brl-mb-2">
+                        <button class="brl-btn-secondary brl-btn-outline brl-btn-icon brl-icon-trash brl-mr-2">Label</button>
+                        <button class="brl-btn-secondary brl-btn-outline brl-btn-icon brl-icon-trash brl-mr-2" disabled>Disabled</button>
+                        <button class="brl-btn-secondary brl-btn-outline brl-btn-icon brl-icon-trash active brl-mr-2">Active</button>
+                    </div>
+                    <div class="brl-hbox brl-mb-2">
+                        <button class="brl-btn-secondary brl-btn-ghost brl-btn-icon brl-icon-remove brl-mr-2">Label</button>
+                        <button class="brl-btn-secondary brl-btn-ghost brl-btn-icon brl-icon-remove brl-mr-2" disabled>Disabled</button>
+                        <button class="brl-btn-secondary brl-btn-ghost brl-btn-icon brl-icon-remove active brl-mr-2">Active</button>
+                    </div>
+                </div>
+            </div>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h4>Alert Colors Buttons</h4>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <div class="brl-hbox brl-mb-2">
+                        <button class="brl-btn-primary brl-btn-info brl-btn-icon brl-icon-info brl-mr-2">Info</button>
+                        <button class="brl-btn-primary brl-btn-info brl-btn-icon brl-icon-info brl-mr-2" disabled>Disabled</button>
+                        <button class="brl-btn-primary brl-btn-info brl-btn-icon brl-icon-info active brl-mr-2">Active</button>
+                    </div>
+                    <div class="brl-hbox brl-mb-2">
+                        <button class="brl-btn-primary brl-btn-success brl-btn-icon brl-icon-selected brl-mr-2">Success</button>
+                        <button class="brl-btn-primary brl-btn-success brl-btn-icon brl-icon-selected brl-mr-2" disabled>Disabled</button>
+                        <button class="brl-btn-primary brl-btn-success brl-btn-icon brl-icon-selected active brl-mr-2">Active</button>
+                    </div>
+                    <div class="brl-hbox brl-mb-2">
+                        <button class="brl-btn-primary brl-btn-warning brl-btn-icon brl-icon-warning brl-mr-2">Warning</button>
+                        <button class="brl-btn-primary brl-btn-warning brl-btn-icon brl-icon-warning brl-mr-2" disabled>Disabled</button>
+                        <button class="brl-btn-primary brl-btn-warning brl-btn-icon brl-icon-warning active brl-mr-2">Active</button>
+                    </div>
+                    <div class="brl-hbox brl-mb-2">
+                        <button class="brl-btn-primary brl-btn-error brl-btn-icon brl-icon-configure brl-mr-2">Error</button>
+                        <button class="brl-btn-primary brl-btn-error brl-btn-icon brl-icon-configure brl-mr-2" disabled>Disabled</button>
+                        <button class="brl-btn-primary brl-btn-error brl-btn-icon brl-icon-configure active brl-mr-2">Active</button>
+                    </div>
+                </div>
+            </div>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h4>Icon Buttons</h4>
+                    <p> To create primary color icon buttons without a label, add only
+                        <code class="css">brl-icon-[insert icon name]</code> to your
+                        <code class="html">button</code> tag.</p>
+                    <p>For secondary color icon buttons, also include the
+                        <code class="css">secondary-color</code> class. </p>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <pre class="show-code brl-mb-3 brl-p-1"><code><span class="comment">// Icon Button (Primary Color)</span>
+<span class="html">&lt;button</span> <span class="value">type</span>=<span class="css">"button"</span> <span class="value">class</span>=<span class="css">"icon-edit-pencil"</span><span class="html">></span>
+<span class="html">&lt;/button></span>
+
+<span class="comment">// Icon Button (Secondary Color)</span>
+<span class="html">&lt;button</span> <span class="value">type</span>=<span class="css">"button"</span> <span class="value">class</span>=<span class="css">"icon-edit-pencil secondary-color"</span><span class="html">></span>
+<span class="html">&lt;/button></span>
+</code></pre>
+                    <div class="hbox mb-2">
+                        <button class="brl-icon-edit-pencil brl-mr-2"></button>
+                        <button class="brl-icon-edit-pencil brl-mr-2" disabled></button>
+                        <button class="brl-icon-edit-pencil active brl-mr-2"></button>
+                    </div>
+                    <div class="hbox mb-2">
+                        <button class="brl-icon-edit-pencil secondary-color brl-mr-2"></button>
+                        <button class="brl-icon-edit-pencil secondary-color brl-mr-2" disabled></button>
+                        <button class="brl-icon-edit-pencil secondary-color active brl-mr-2"></button>
+                    </div>
+
+                </div>
+            </div>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h4>Block-level Buttons</h4>
+                    <p>A block-level button spans its width according to the parent element, and can be defined by this guideline's
+                        sizing utilities.
+                    </p>
+                    <p>To that effect, add
+                        <code class="css">brl-w-{percentage}</code> (covers sizing for 25%, 50%, 75%, and 100%) to your button.</p>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <button class="brl-btn-primary brl-w-100 brl-mb-2">Button</button>
+                    <button class="brl-btn-primary brl-btn-outline brl-w-100 brl-mb-2">Button</button>
+                    <button class="brl-btn-primary brl-btn-icon brl-icon-save brl-w-100 brl-mb-2">Icon Button</button>
+                    <button class="brl-btn-primary brl-btn-outline brl-btn-icon brl-icon-add brl-w-100 brl-mb-2">Icon Button</button>
+                </div>
+            </div>
+        </section>
+        <hr />
+        <section id="forms">
+            <h2>Forms</h2>
+            <p>When creating forms, it is recommendable to use a
+                <code class="html">&lt;form></code> element to wrap the fields -
+                <a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Forms/How_to_structure_an_HTML_form" target="_blank">read more</a>. Fields contain inputs with a matching label.
+            </p>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h3>Usage</h3>
+                    <p>The forms are styled with the
+                        <code class="css">brl-form</code> class, and they can contain several fields. Style each field using
+                        <code class="css">brl-field</code>.</p>
+                    <p>
+                        You can use the
+                        <code class="html">&lt;fieldset></code> element to create groups of fields that share the same purpose (e.g., insert several fields regarding
+                        user personal information, like name, e-mail etc.), for styling and semantic purposes. Using
+                        <code class="html">&lt;div></code> works as well, although not semantically.
+                    </p>
+                    <div class="brl-alert alert-default brl-my-3">
+                        <span class="brl-icon-gift brl-mr-1"></span>
+                        <strong>Tip:</strong> If you are planning on styling your fields with Flexbox, consider using a
+                        <code class="html">&lt;div></code> as a flex container inside the
+                        <code class="html">&lt;fieldset></code> element. Fieldset tags by themselves do not function with
+                        <code class="css">display: flex</code> or inherited properties.
+                    </div>
+                    <p>
+                        Here are some basic instructions on how to create your form (see
+                        <dfn>Code &amp; Examples</dfn>, as follow):
+                    </p>
+                    <ul>
+                        <li>Style your
+                            <code class="html">&lt;form></code> or outer
+                            <code class="html">&lt;div></code> with
+                            <code class="css">brl-form</code>;</li>
+                        <li>Insert a
+                            <code class="html">&lt;fieldset></code> element (optional);</li>
+                        <li>Style your field(s) with
+                            <code class="css">brl-field</code> and consider:
+                            <ul>
+                                <li>If you wish to place more than one field per line, use Flexbox: style a
+                                    <code class="html">div</code> with
+                                    <code class="css">brl-hbox</code> and desirable margins and place your field inside it;</li>
+                                <li>Distribute your fields inside the flex container by adding one of the following classes to
+                                    each field:
+                                    <code class="css">brl-flex-1</code>,
+                                    <code class="css">brl-flex-2</code>,
+                                    <code class="css">brl-flex-3</code>, and so on;
+                                </li>
+                                <li>For each field, insert an input and a matching label. Wrap the control form (input) inside
+                                    the
+                                    <code class="html">&lt;label></code> element.</li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h3>Code &amp; Examples</h3>
+                    <pre class="show-code brl-mb-3 brl-p-1"><code><span class="comment">// Form for one large field and one small</span>
+<span class="html">&lt;form</span> <span class="value">class</span>=<span class="css">"brl-form"</span><span class="html">></span>
+    <span class="html">&lt;fieldset></span>
+        <span class="html">&lt;div</span> <span class="value">class</span>=<span class="css">"brl-hbox brl-mx--2"</span><span class="html">></span>
+            <span class="html">&lt;div</span> <span class="value">class</span>=<span class="css">"brl-field brl-flex-2 brl-mx-2"</span><span class="html">></span>
+                <span class="html">&lt;label></span>Large Field:<span class="html">&lt;/label></span>
+                <span class="html">&lt;input</span> <span class="value">class</span>=<span class="css">"brl-input-default"</span> <span class="value">type</span>=<span class="css">"text"</span><span class="html">></span>
+            <span class="html">&lt;/div></span>
+            <span class="html">&lt;div</span> <span class="value">class</span>=<span class="css">"brl-field brl-flex-2 brl-mx-2"</span><span class="html">></span>
+                <span class="html">&lt;label></span>Small Field:<span class="html">&lt;/label></span>
+                <span class="html">&lt;input</span> <span class="value">class</span>=<span class="css">"brl-input-default"</span> <span class="value">type</span>=<span class="css">"text"</span><span class="html">></span>
+            <span class="html">&lt;/div></span>
+        <span class="html">&lt;/div></span>
+    <span class="html">&lt;/fieldset></span>
+<span class="html">&lt;/form></span></code></pre>
+                    <form class="brl-form">
+                        <fieldset>
+                            <div class="brl-hbox brl-mx--2">
+                                <div class="brl-field brl-flex-2 brl-mx-2">
+                                    <label>Large Field:
+                                        <input class="brl-input-default" type="text" />
+                                    </label>
+                                </div>
+                                <div class="brl-field brl-flex-1 brl-mx-2">
+                                    <label>Small Label:
+                                        <input class="brl-input-default" type="text" />
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <form class="brl-form">
+                        <fieldset>
+                            <div class="brl-hbox brl-mx--2">
+                                <div class="brl-field brl-flex-2 brl-mx-2">
+                                    <label>Large Field:
+                                        <input class="brl-input-default" type="text" />
+                                    </label>
+                                </div>
+                                <div class="brl-field brl-flex-1 brl-mx-2">
+                                    <label>Small Field:
+                                        <input class="brl-input-default" type="text" />
+                                    </label>
+                                </div>
+                                <div class="brl-field brl-flex-1 brl-mx-2">
+                                    <label>Small Field:
+                                        <input class="brl-input-default" type="text" />
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                    <form class="brl-form">
+                        <fieldset>
+                            <div class="brl-hbox brl-mx--2">
+                                <div class="brl-field brl-flex-1 brl-mx-2">
+                                    <label>Field:
+                                        <input class="brl-input-default" type="text" />
+                                    </label>
+                                </div>
+                                <div class="brl-field brl-flex-1 brl-mx-2">
+                                    <label>Field:
+                                        <input class="brl-input-default" type="text" />
+                                    </label>
+                                </div>
+                                <div class="brl-field brl-flex-1 brl-mx-2">
+                                    <label>Field:
+                                        <input class="brl-input-default" type="text" />
+                                    </label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <h3>Input Themes &amp; Types</h3>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h4>Default Input Box</h4>
+                    <form class="brl-form">
+                        <fieldset>
+                            <div class="brl-field">
+                                <label>Label:
+                                    <input class="brl-input-default" type="text" placeholder="Placeholder..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Placeholder...'"
+                                    />
+                                </label>
+                            </div>
+                            <div class="brl-field required">
+                                <label>Label:
+                                    <input class="brl-input-default" type="text" placeholder="Required..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Required...'"
+                                        required />
+                                </label>
+                            </div>
+                            <div class="brl-field disabled">
+                                <label>Label:
+                                    <input class="brl-input-default" type="text" placeholder="Disabled..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Disabled...'"
+                                        disabled />
+                                </label>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h4>Flat Input Box</h4>
+                    <form class="brl-form">
+                        <fieldset>
+                            <div class="brl-field">
+                                <label>Label:
+                                    <input class="brl-input-flat" type="text" placeholder="Placeholder..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Placeholder...'"
+                                    />
+                                </label>
+                            </div>
+                            <div class="brl-field required">
+                                <label>Label:
+                                    <input class="brl-input-flat" type="text" placeholder="Required..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Required...'"
+                                        required />
+                                </label>
+                            </div>
+                            <div class="brl-field disabled">
+                                <label>Label:
+                                    <input class="brl-input-flat" type="text" placeholder="Disabled..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Disabled...'"
+                                        disabled />
+                                </label>
+                            </div>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h4>Textarea</h4>
+                    <form class="brl-form">
+                        <div class="brl-field">
+                            <label>Label:
+                                <textarea rows="2" placeholder="Placeholder..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Placeholder...'"></textarea>
+                            </label>
+                        </div>
+                        <div class="brl-field required">
+                            <label>Label:
+                                <textarea rows="2" placeholder="Required..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Required...'" required></textarea>
+                            </label>
+                        </div>
+                        <div class="brl-field disabled">
+                            <label>Label:
+                                <textarea rows="2" placeholder="Disabled..." onfocus="this.placeholder = ''" onblur="this.placeholder = 'Disabled...'" disabled></textarea>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                </div>
+            </div>
+            <div class="brl-hbox brl-my-3 brl-mx--3">
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                    <h4>Dropdown</h4>
+                    <div class="brl-field">
+                        <label>Label:
+                            <div class="brl-dropdown">
+                                <select>
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                </select>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="brl-field">
+                        <label>Label:
+                            <div class="brl-dropdown">
+                                <select required>
+                                    <option disabled>Select...</option>
+                                    <option>Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option>
+                                </select>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="brl-field">
+                        <label>Label:
+                            <div class="brl-input-radio">
+                                <label>
+                                    <input type="radio"> Teste
+                                </label>
+                            </div>
+                            <div class="brl-input-radio">
+                                <input type="radio">
+                                <label>Teste</label>
+                            </div>
+                            <div class="brl-input-radio">
+                                <input type="radio">
+                                <label>Teste</label>
+                            </div>
+                        </label>
+                        <label>Label:
+                            <div class="brl-input-radio">
+                                <input type="radio">
+                                <label>Teste</label>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="brl-field">
+                        <div class="brl-radio">
+                            <input type="radio" name="fruit" checked="" tabindex="0" class="hidden">
+                            <label>Apples</label>
+                        </div>
+                        <div class="brl-radio">
+                            <input type="radio" name="fruit" checked="" tabindex="0" class="hidden">
+                            <label>Apples</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="brl-vbox brl-flex-1 brl-mx-3">
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,370 @@
+@import 'brl-common-styles.scss';
+@import '../fonts/brl-font-icons/brl-font-icons.scss';
+
+button[class^="brl-"],
+button[class^="icon-"]{
+    outline: none;
+    &:disabled {
+        cursor: not-allowed;
+    }
+    &.active {
+        cursor: pointer;
+    }
+}
+
+.brl-btn-base {
+    border-radius: $default-border-radius;
+    border: 1px solid transparent;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    padding: .35rem .75rem;
+    cursor: pointer;
+    text-align: center;
+    transition: all .2s ease;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    min-width: 10ch; // character unit
+}
+
+.brl-btn-outline {
+    @extend .brl-btn-base;
+    &.active {
+        cursor: pointer;
+    }
+    &:disabled {
+        cursor: not-allowed;
+    }
+}
+
+/* SMALL BUTTON */
+/* Works for primary/secondary buttons and its variations */
+.brl-btn-small {
+    font-size: .9rem !important;
+    padding: .15rem .5rem !important;
+    min-width: 8ch !important; // character unit
+}
+
+/* PRIMARY BUTTON */
+/* to add icon, include .brl-btn-icon */
+.brl-btn-primary {
+    @extend .brl-btn-base;
+    background-color: $primary-color;
+    border-color: $primary-color;
+    color: #fff;
+    &:disabled {
+        background-color: tint($primary-color, 60%);
+        border-color: tint($primary-color, 60%);
+    }
+    &.active {
+        background-color: shade($primary-color, 30%);
+        border-color: shade($primary-color, 60%);
+        // box-shadow: inset 0 0 1rem shade($primary-color, 40%);
+    }
+    &:hover:enabled,
+    &.active:hover:enabled {
+        background-color: shade($primary-color, 60%);
+        border-color: shade($primary-color, 60%);
+    }
+    &.brl-btn-icon {
+        @extend .brl-btn-primary;
+    }
+}
+
+/* OUTLINE PRIMARY BUTTON */
+/* to add icon, include .brl-btn-icon */
+.brl-btn-primary {
+    &.brl-btn-outline {
+        background-color: transparent;
+        color: $primary-color;
+        &:disabled {
+            border-color: tint($primary-color, 60%);
+            color: tint($primary-color, 60%);
+        }
+        &.active {
+            background-color: tint($primary-color, 80%);
+            border-color: shade($primary-color, 60%);
+            // box-shadow: inset 0 0 1rem tint($primary-color, 70%);
+            color: shade($primary-color, 60%);
+        }
+        &:hover:enabled,
+        &.active:hover:enabled {
+            background-color: $primary-color;
+            border-color: shade($primary-color, 60%);
+            box-shadow: none;
+            color: #fff;
+        }
+    }
+}
+
+/* GHOST PRIMARY BUTTON */
+/* to add icon, include .brl-btn-icon */
+.brl-btn-primary {
+    &.brl-btn-ghost {
+        background-color: transparent;
+        border-color: transparent;
+        color: $primary-color;
+        text-decoration: underline;
+        &:disabled {
+            color: tint($primary-color, 60%);
+        }
+        &.active {
+            background-color: tint($primary-color, 90%);
+            border-color: tint($primary-color, 60%);
+            // box-shadow: none;
+            color: shade($primary-color, 60%);
+            text-decoration: none;
+        }
+        &:hover:enabled,
+        &.active:hover:enabled {
+            background-color: tint($primary-color, 90%);
+            // box-shadow: none;
+            color: shade($primary-color, 60%);
+            text-decoration: underline;
+        }
+        &:hover:enabled {
+            border-color: transparent;
+        }
+        &.active:hover:enabled {
+            border-color: shade($primary-color, 60%);
+        }
+    }
+}
+
+/* SECONDARY BUTTON */
+/* to add icon, include .brl-btn-icon */
+.brl-btn-secondary {
+    @extend .brl-btn-base;
+    background-color: $secondary-color;
+    border-color: $secondary-color;
+    color: #fff;
+    &:disabled {
+        background-color: tint($secondary-color, 60%);
+        border-color: tint($secondary-color, 60%);
+    }
+    &.active {
+        background-color: shade($secondary-color, 30%);
+        border-color: shade($secondary-color, 60%);
+        // box-shadow: inset 0 0 1rem shade($secondary-color, 40%);
+    }
+    &:hover:enabled,
+    &.active:hover:enabled {
+        background-color: shade($secondary-color, 60%);
+        border-color: shade($secondary-color, 60%);
+    }
+    &.brl-btn-icon {
+        @extend .brl-btn-secondary;
+    }
+}
+
+/* OUTLINE SECONDARY BUTTON */
+/* to add icon, include .brl-btn-icon */
+.brl-btn-secondary {
+    &.brl-btn-outline {
+        background-color: transparent;
+        color: $secondary-color;
+        &:disabled {
+            border-color: tint($secondary-color, 60%);
+            color: tint($secondary-color, 60%);
+        }
+        &.active {
+            background-color: tint($secondary-color, 80%);
+            border-color: shade($secondary-color, 60%);
+            // box-shadow: inset 0 0 1rem tint($secondary-color, 70%);
+            color: shade($secondary-color, 60%);
+        }
+        &:hover:enabled,
+        &.active:hover:enabled {
+            background-color: $secondary-color;
+            border-color: shade($secondary-color, 60%);
+            // box-shadow: none;
+            color: #fff;
+        }
+    }
+}
+
+/* GHOST SECONDARY BUTTON */
+/* to add icon, include .brl-btn-icon */
+.brl-btn-secondary {
+    &.brl-btn-ghost {
+        background-color: transparent;
+        border-color: transparent;
+        color: $secondary-color;
+        text-decoration: underline;
+        &:disabled {
+            color: tint($secondary-color, 60%);
+        }
+        &.active {
+            background-color: tint($secondary-color, 90%);
+            border-color: tint($secondary-color, 60%);
+            // box-shadow: none;
+            color: shade($secondary-color, 60%);
+            text-decoration: none;
+        }
+        &:hover:enabled,
+        &.active:hover:enabled {
+            background-color: tint($secondary-color, 90%);
+            // box-shadow: none;
+            color: shade($secondary-color, 60%);
+            text-decoration: underline;
+        }
+        &:hover:enabled {
+            border-color: transparent;
+        }
+        &.active:hover:enabled {
+            border-color: shade($secondary-color, 60%);
+        }
+    }
+}
+
+/* ALERT BUTTONS */
+/* to add icon, include .brl-btn-icon */
+
+/* INFO BUTTON */
+.brl-btn-info {
+    @extend .brl-btn-primary;
+    background-color: $info-color;
+    border-color: $info-color;
+    &:disabled {
+        background-color: tint($info-color, 60%);
+        border-color: tint($info-color, 60%);
+    }
+    &.active {
+        background-color: shade($info-color, 30%);
+        border-color: shade($info-color, 60%);
+        // box-shadow: inset 0 0 1rem shade($info-color, 40%);
+    }
+    &:hover:enabled,
+    &.active:hover:enabled {
+        background-color: shade($info-color, 60%);
+        border-color: shade($info-color, 60%);
+    }
+    &.brl-btn-icon {
+        @extend .brl-btn-info;
+    }
+}
+
+/* SUCESS BUTTON */
+.brl-btn-success {
+    @extend .brl-btn-primary;
+    background-color: $success-color;
+    border-color: $success-color;
+    &:disabled {
+        background-color: tint($success-color, 60%);
+        border-color: tint($success-color, 60%);
+    }
+    &.active {
+        background-color: shade($success-color, 30%);
+        border-color: shade($success-color, 60%);
+        // box-shadow: inset 0 0 1rem shade($success-color, 40%);
+    }
+    &:hover:enabled,
+    &.active:hover:enabled {
+        background-color: shade($success-color, 60%);
+        border-color: shade($success-color, 60%);
+    }
+    &.brl-btn-icon {
+        @extend .brl-btn-success;
+    }
+}
+
+/* WARNING BUTTON */
+.brl-btn-warning {
+    @extend .brl-btn-primary;
+    background-color: $warning-color;
+    border-color: $warning-color;
+    &:disabled {
+        background-color: tint($warning-color, 60%);
+        border-color: tint($warning-color, 60%);
+    }
+    &.active {
+        background-color: shade($warning-color, 30%);
+        border-color: shade($warning-color, 60%);
+        box-shadow: inset 0 0 1rem shade($warning-color, 40%);
+    }
+    &:hover:enabled,
+    &.active:hover:enabled {
+        background-color: shade($warning-color, 60%);
+        border-color: shade($warning-color, 60%);
+    }
+    &.brl-btn-icon {
+        @extend .brl-btn-warning;
+    }
+}
+
+/* ERROR BUTTON */
+.brl-btn-error {
+    @extend .brl-btn-primary;
+    background-color: $error-color;
+    border-color: $error-color;
+    &:disabled {
+        background-color: tint($error-color, 60%);
+        border-color: tint($error-color, 60%);
+    }
+    &.active {
+        background-color: shade($error-color, 30%);
+        border-color: shade($error-color, 60%);
+        // box-shadow: inset 0 0 1rem shade($error-color, 40%);
+    }
+    &:hover:enabled,
+    &.active:hover:enabled {
+        background-color: shade($error-color, 60%);
+        border-color: shade($error-color, 60%);
+    }
+    &.brl-btn-icon {
+        @extend .brl-btn-error;
+    }
+}
+
+/* ICON .brl-btn-icon */
+/* only works if added to primary/secondary buttons & outline buttons */
+  .brl-btn-icon {
+    position: relative;
+    padding-right: 2.25rem !important;
+    min-width: 4rem;
+    
+    &:after {
+        position: absolute;
+        right: .75rem;
+        line-height: inherit !important;
+        margin-left: 1.5rem;
+    }
+    &.brl-btn-small {
+        padding-right: 2rem !important;
+        &:after {
+            right: .5rem;
+        }
+    }
+}
+
+button[class^="brl-icon-"] {
+    cursor: pointer;
+    background: none;
+    border: 0px;
+    padding: 0px;
+    font-size: 1em;
+    color: $primary-color;
+    &:disabled {
+        color: tint($primary-color, 60%);
+    }
+    &.active {
+        color: shade($primary-color, 30%);
+    }
+    &:hover:enabled,
+    &.active:hover:enabled {
+        color: shade($primary-color, 60%);
+    }
+    &.secondary-color {
+        color: $secondary-color;
+        &:disabled {
+            color: tint($primary-color, 60%);
+        }
+        &.active {
+            color: shade($secondary-color, 30%);
+        }
+        &:hover:enabled,
+        &.active:hover:enabled {
+            color: shade($secondary-color, 60%);
+        }
+    }
+}

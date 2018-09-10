@@ -1,0 +1,697 @@
+@import '_brl-constants.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    font-family: 'IBM-Plex-Sans', 'Helvetica Neue', 'Roboto', 'Arial', sans-serif;
+    font-size: 1rem;
+    font-weight: $font-regular;
+    line-height: 1.5;
+    text-align: left;
+    background-color: $background-color;
+}
+
+hr {
+    @extend .brl-my-4;
+    box-sizing: content-box;
+    height: 0px;
+    width: 100%;
+    overflow: visible;
+    border: 0px;
+    border-top: 1px solid rgba(0,0,0,.2);
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+.clearfix::after {
+    display: block;
+    clear: both;
+    content: "";
+}
+
+a {
+    color: $primary-color; // color changes depending on the project
+    text-decoration: none;
+    background-color: transparent;
+    transition: all .2s ease;
+
+    &:hover {
+        color: shade($primary-color, 60%);
+        text-decoration: underline;
+    }
+}
+
+a:not([href]):not([tabindex]) {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:not([href]):not([tabindex]):focus {
+    outline: 0;
+}
+
+dl, ol, ul {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+ul {
+    &.brl-list-unstyled {
+        padding-left: 0;
+        list-style: none;
+    }
+}
+
+/* OBJECTS */
+/* wrappers - wrapping and constraining elements */
+.brl-container {
+    position: relative;
+    width: 100%;
+    margin: 0px auto;
+}
+
+.brl-page-wrapper {
+    width: 100%;
+    transition: all .25s ease;
+    margin: 0px auto;
+}
+
+.brl-main-content {
+    flex: 1 1 auto;
+    min-height: 0px;
+    overflow-y: auto;
+}
+
+/* media queries */
+@media (min-width: 576px) {
+    .brl-page-wrapper {
+        max-width: 100%;
+    }
+}
+  
+@media (min-width: 768px) {
+    .brl-page-wrapper {
+        max-width: 95%;
+    }
+}
+
+@media (min-width: 992px) {
+    .brl-page-wrapper {
+        max-width: 85%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .brl-page-wrapper {
+        max-width: 75%;
+    }
+}
+
+/* DISPLAY BEHAVIOUR */
+/* Table */
+.brl-dtable {
+    display: table;
+}
+
+.brl-dtable-cell {
+    display: table-cell;
+}
+
+.brl-align-middle {
+    vertical-align: middle;
+}
+
+.brl-scroll-y {
+    overflow-y: scroll !important;
+}
+
+/* Flexbox */
+.brl-dflex {
+    display: flex;
+}
+
+.brl-hbox {
+    @extend .brl-dflex;
+    flex-direction: row; // items organized horizontally from left to right
+    &.reverse {
+        flex-direction: row-reverse;
+    }
+}
+
+.brl-vbox {
+    @extend .brl-dflex;
+    flex-direction: column; // items organized vertically from top to bottom
+    &.reverse {
+        flex-direction: column-reverse;
+    }
+}
+
+[class^="brl-flex-"] {
+    max-width: 100%;
+    min-height: 0px !important;
+}
+
+.brl-flex-1 {
+    flex: 1;
+}
+
+.brl-flex-2 {
+    flex: 2;
+}
+
+.brl-flex-3 {
+    flex: 3;
+}
+
+.brl-flex-wrap {
+    flex-wrap: wrap;
+}
+
+.brl-items-start {
+    align-items: flex-start;
+}
+
+.brl-items-end {
+    align-items: flex-end;
+}
+
+.brl-items-center {
+    align-items: center;
+}
+
+/* SIZING HELPERS */
+/*
+This .scss loop will create "height" and "width" helpers
+*/
+$amounts: (25, 50, 75, 100); // percentage
+$dimensions: ("height", "width");
+
+@each $amount in $amounts {
+    @each $dimension in $dimensions {
+        .brl-#{str-slice($dimension, 0, 1)}-#{$amount} {
+            #{$dimension}: #{percentage($amount/100)} !important;
+        }
+    }
+}
+
+.brl-maxw-100 {
+    max-width: 100% !important;
+}
+
+.brl-maxh-100 {
+    max-height: 100% !important;
+}
+
+/* SPACING HELPERS */
+/*
+These .scss loops will create "margin" and "padding" helpers
+*/
+
+/*
+The first loop will generate several classes ranging from 0 to 5, in which the values are set in rem units
+The letters "m" or "p" are for MARGIN or PADDING
+The letters "t", "b", "l", or "r" are for TOP, BOTTOM, LEFT, or RIGHT
+The number are the spacings in rem
+*/
+
+$spaceamounts: (0, 0.25, 0.5, 1, 1.5, 3); // rem
+$sides: ("top", "bottom", "left", "right");
+
+@each $space in $spaceamounts {
+    $index: index($spaceamounts, $space) - 1;
+    @each $side in $sides {
+        .brl-m#{str-slice($side, 0, 1)}-#{$index} {
+            margin-#{$side}: #{$space}rem !important;
+        }
+        
+        .brl-p#{str-slice($side, 0, 1)}-#{$index} {
+            padding-#{$side}: #{$space}rem !important;
+        }
+    }
+}
+
+@each $space in $spaceamounts {
+    $index: index($spaceamounts, $space) - 1;
+    @each $side in $sides {
+        .brl-m-#{$index} {
+            margin: #{$space}rem !important;
+        }
+        
+        .brl-p-#{$index} {
+            padding: #{$space}rem !important;
+        }
+    }
+}
+
+.brl-my-0 {
+    @extend .brl-mt-0;
+    @extend .brl-mb-0;
+}
+
+.brl-my-1 {
+    @extend .brl-mt-1;
+    @extend .brl-mb-1;
+}
+
+.brl-my-2 {
+    @extend .brl-mt-2;
+    @extend .brl-mb-2;
+}
+
+.brl-my-3 {
+    @extend .brl-mt-3;
+    @extend .brl-mb-3;
+}
+
+.brl-my-4 {
+    @extend .brl-mt-4;
+    @extend .brl-mb-4;
+}
+
+.brl-my-5 {
+    @extend .brl-mt-5;
+    @extend .brl-mb-5;
+}
+
+.brl-mx-0 {
+    @extend .brl-ml-0;
+    @extend .brl-mr-0;
+}
+
+.brl-mx-1 {
+    @extend .brl-ml-1;
+    @extend .brl-mr-1;
+}
+
+.brl-mx-2 {
+    @extend .brl-ml-2;
+    @extend .brl-mr-2;
+}
+
+.brl-mx-3 {
+    @extend .brl-ml-3;
+    @extend .brl-mr-3;
+}
+
+.brl-mx-4 {
+    @extend .brl-ml-4;
+    @extend .brl-mr-4;
+}
+
+.brl-mx-5 {
+    @extend .brl-ml-5;
+    @extend .brl-mr-5;
+}
+
+.brl-py-0 {
+    @extend .brl-pt-0;
+    @extend .brl-pb-0;
+}
+
+.brl-py-1 {
+    @extend .brl-pt-1;
+    @extend .brl-pb-1;
+}
+
+.brl-py-2 {
+    @extend .brl-pt-2;
+    @extend .brl-pb-2;
+}
+
+.brl-py-3 {
+    @extend .brl-pt-3;
+    @extend .brl-pb-3;
+}
+
+.brl-py-4 {
+    @extend .brl-pt-4;
+    @extend .brl-pb-4;
+}
+
+.brl-py-5 {
+    @extend .brl-pt-5;
+    @extend .brl-pb-5;
+}
+
+.brl-px-0 {
+    @extend .brl-pl-0;
+    @extend .brl-pr-0;
+}
+
+.brl-px-1 {
+    @extend .brl-pl-1;
+    @extend .brl-pr-1;
+}
+
+.brl-px-2 {
+    @extend .brl-pl-2;
+    @extend .brl-pr-2;
+}
+
+.brl-px-3 {
+    @extend .brl-pl-3;
+    @extend .brl-pr-3;
+}
+
+.brl-px-4 {
+    @extend .brl-pl-4;
+    @extend .brl-pr-4;
+}
+
+.brl-px-5 {
+    @extend .brl-pl-5;
+    @extend .brl-pr-5;
+}
+
+/*
+The second loop will generate classes for auto values
+*/
+$auto: ("auto");
+@each $side in $sides {
+    .brl-m#{str-slice($side, 0, 1)}-#{$auto} {
+        margin-#{$side}: #{$auto} !important;
+    }
+    
+    .brl-p#{str-slice($side, 0, 1)}-#{$auto} {
+        padding-#{$side}: #{$auto} !important;
+    }
+}
+
+.brl-m-auto {
+    margin: auto !important;
+}
+
+.brl-my-auto {
+    @extend .brl-mt-auto;
+    @extend .brl-mb-auto;
+}
+
+.brl-mx-auto {
+    @extend .brl-ml-auto;
+    @extend .brl-mr-auto;
+}
+
+/*
+The third loop will generate classes for negative values (margins only)
+*/
+$neg-spaceamounts: (0.25, 0.5, 1, 1.5, 3); // rem
+
+@each $neg-space in $neg-spaceamounts {
+    $index: index($neg-spaceamounts, $neg-space);
+    @each $side in $sides {
+        .brl-m#{str-slice($side, 0, 1)}--#{$index} {
+            margin-#{$side}: -#{$neg-space}rem !important;
+        }
+    }
+}
+
+@each $neg-space in $neg-spaceamounts {
+    $index: index($neg-spaceamounts, $neg-space) - 1;
+    @each $side in $sides {
+        .brl-m--#{$index} {
+            margin: -#{$neg-space}rem !important;
+        }
+    }
+}
+
+.brl-my--1 {
+    @extend .brl-mt--1;
+    @extend .brl-mb--1;
+}
+
+.brl-my--2 {
+    @extend .brl-mt--2;
+    @extend .brl-mb--2;
+}
+
+.brl-my--3 {
+    @extend .brl-mt--3;
+    @extend .brl-mb--3;
+}
+
+.brl-my--4 {
+    @extend .brl-mt--4;
+    @extend .brl-mb--4;
+}
+
+.brl-my--5 {
+    @extend .brl-mt--5;
+    @extend .brl-mb--5;
+}
+
+.brl-mx--1 {
+    @extend .brl-ml--1;
+    @extend .brl-mr--1;
+}
+
+.brl-mx--2 {
+    @extend .brl-ml--2;
+    @extend .brl-mr--2;
+}
+
+.brl-mx--3 {
+    @extend .brl-ml--3;
+    @extend .brl-mr--3;
+}
+
+.brl-mx--4 {
+    @extend .brl-ml--4;
+    @extend .brl-mr--4;
+}
+
+.brl-mx--5 {
+    @extend .brl-ml--5;
+    @extend .brl-mr--5;
+}
+
+/* ALIGNMENTS & TEXT BEHAVIOURS */
+.brl-text-left {
+    text-align: left !important;
+}
+
+.brl-text-center {
+    text-align: center !important;
+}
+
+.brl-text-right {
+    text-align: right !important;
+}
+
+.brl-text-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.brl-text-wrap {
+    word-break: break-all !important;
+}
+
+/* FONTS */
+/* Font/Text styles */
+.brl-italic {
+    font-style: italic !important;
+}
+
+.brl-uppercase {
+    text-transform: uppercase !important;
+}
+
+/* Colors */
+.brl-primary-color {
+    color: $primary-color !important;
+} 
+
+.brl-secondary-color {
+    color: $secondary-color !important;
+} 
+
+.brl-info-color {
+    color: $info-color !important;
+}
+
+.brl-success-color {
+    color: $success-color !important;
+}
+
+.brl-warning-color {
+    color: $warning-color !important;
+}
+
+.brl-error-color {
+    color: $error-color !important;
+}
+
+/* Font size */
+.brl-font-100 {
+    font-size: 1rem !important;
+}
+.brl-font-90 {
+    font-size: .9rem !important;
+}
+.brl-font-80 {
+    font-size: .8rem !important;
+}
+.brl-font-70 {
+    font-size: .7rem !important;
+}
+
+/* Font weight */
+.brl-font-x-light {
+    font-weight: $font-x-light;
+}
+.brl-font-light {
+    font-weight: $font-light;
+}
+.brl-font-regular {
+    font-weight: $font-regular;
+}
+.brl-font-bold {
+    font-weight: $font-bold;
+}
+.brl-font-x-bold {
+    font-weight: $font-x-bold;
+}
+
+/* ALERTS */
+.brl-alert {
+    position: relative;
+    padding: 0.5rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    line-height: 1.5rem;
+    width: fit-content;
+    &.brl-alert-default {
+        color: $text-color;
+        background-color: tint($secondary-color, 90%);
+        border-color: tint($secondary-color, 60%);
+        &.brl-alert-close {
+            & button[class^="brl-icon-"] {
+                color: tint($secondary-color, 60%) !important;
+                &:hover:enabled {
+                    color: $secondary-color !important;
+                }
+            }
+        }
+    }
+    &.brl-alert-info {
+        color: $info-color;
+        background-color: tint($info-color, 90%);
+        border-color: tint($info-color, 60%);
+        &.brl-alert-close {
+            & button[class^="brl-icon-"] {
+                color: tint($info-color, 60%) !important;
+                &:hover:enabled {
+                    color: $info-color !important;
+                }
+            }
+        }
+    }
+    &.brl-alert-success {
+        color: $success-color;
+        background-color: tint($success-color, 90%);
+        border-color: tint($success-color, 60%);
+        &.brl-alert-close {
+            & button[class^="brl-icon-"] {
+                color: tint($success-color, 60%) !important;
+                &:hover:enabled {
+                    color: $success-color !important;
+                }
+            }
+        }
+    }
+    &.brl-alert-warning {
+        color: $warning-color;
+        background-color: tint($warning-color, 90%);
+        border-color: tint($warning-color, 60%);
+        &.brl-alert-close {
+            & button[class^="brl-icon-"] {
+                color: tint($warning-color, 60%) !important;
+                &:hover:enabled {
+                    color: $warning-color !important;
+                }
+            }
+        }
+    }
+    &.brl-alert-error {
+        color: $error-color;
+        background-color: tint($error-color, 90%);
+        border-color: tint($error-color, 60%);
+        &.brl-alert-close {
+            & button[class^="brl-icon-"] {
+                color: tint($error-color, 60%) !important;
+                &:hover:enabled {
+                    color: $error-color !important;
+                }
+            }
+        }
+    }
+    &.brl-alert-close {
+        @extend .brl-pr-3;
+        & > button[class^="brl-icon-"] {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            padding: inherit;
+            line-height: inherit;
+            font-size: 0.75rem;
+        }
+    }
+}
+
+/*  HEADING / TITLES */
+h1, h2, h3, h4, h5, h6,
+.brl-jumbotron, .brl-x-large-title, .brl-large-title,
+.brl-medium-title, .brl-small-title, .brl-x-small-title {
+    margin: 0rem;
+    font-weight: $font-bold;
+}
+
+h1,
+.brl-jumbotron {
+    font-size: $jumbotron-size;
+}
+
+h2,
+.brl-x-large-title {
+    font-size: $x-large-title-size;
+}
+
+h3,
+.brl-large-title {
+    font-size: $large-title-size;
+}
+
+h4,
+.brl-medium-title {
+    font-size: $medium-title-size;
+}
+
+h5,
+.brl-small-title {
+    font-size: $small-title-size;
+}
+
+h6,
+.brl-x-small-title {
+    font-size: $x-small-title-size;
+}
+
+.brl-label {
+    font-size: $form-font-size;
+    font-weight: $font-bold;
+}

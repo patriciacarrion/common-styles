@@ -1,0 +1,64 @@
+@import '../brl-common-styles.scss';
+@import '../_brl-constants.scss';
+
+header {
+    &.common-styles {
+        position: fixed;
+        top: 0px;
+        background-color: #1d3458;
+        color: #fff;
+        z-index: 5;
+    }
+}
+
+pre {
+    &.show-code {
+        max-height: 300px;
+        max-width: 450px;
+        overflow: scroll;
+        background-color: tint($secondary-color, 90%);
+        border-width: 1px;
+        border-style: solid;
+        border-color: tint($secondary-color, 50%);
+        color: $text-color;
+        & > code {
+            font-size: 1rem !important;
+        }
+    }
+}
+
+code {
+    font-size: 1.2rem;
+    & > .html,
+    &.html {
+        color: #dc267f;
+    }
+
+    & > .css,
+    &.css {
+        color: #00baa1;
+    }
+    & > .value,
+    &.value {
+        color: #e39d14;
+    }
+    & > .comment,
+    &.comment {
+        color: tint($secondary-color, 50%);
+    }
+
+}
+
+.alert-default {
+    color: $text-color;
+    background-color: tint($secondary-color, 90%);
+    border-color: tint($secondary-color, 60%);
+    &.brl-alert-close {
+        & button[class^="brl-icon-"] {
+            color: tint($secondary-color, 60%) !important;
+            &:hover:enabled {
+                color: $secondary-color !important;
+            }
+        }
+    }
+}

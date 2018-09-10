@@ -1,0 +1,322 @@
+@import 'brl-common-styles.scss';
+@import '../fonts/brl-font-icons/brl-font-icons.scss';
+
+.brl-form {
+  position: relative;
+  max-width: 100%;
+}
+
+.brl-field {
+  @extend .brl-mb-3;
+  clear: both;
+  &.disabled {
+    opacity: .45;
+    & :disabled {
+      opacity: 1;
+    }
+  }
+  & label {
+    display: block;
+    color: $text-color;
+    font-size: .9rem;
+    font-weight: $font-bold;
+    text-transform: none;
+    word-break: break-all;
+  }
+  & input[class^="brl-input-"],
+  & .brl-dropdown select,
+  & .brl-dropdown,
+  & textarea {
+    width: 100%;
+    vertical-align: top;
+  }
+}
+
+input:not([type]),
+input[type="date"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="text"],
+input[type="file"],
+input[type="url"],
+input[class^="brl-input-"],
+textarea,
+.brl-dropdown select {
+  font-family: inherit;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: .35rem .75rem;
+  font-size: $form-font-size;
+  font-weight: $form-font-weight !important;
+  line-height: 1.5rem;
+  background-color: transparent;
+  color: $text-color;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $default-border-color;
+  border-radius: 0px;
+  box-shadow: 0rem 0rem 0rem 0rem transparent inset;
+  transition: all .1s ease;
+  min-width: 0px;
+  &:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+  }
+}
+
+input,
+textarea,
+input.brl-input-default {
+  /* DEFAULT THEME INPUT */
+  background-color: #fff;
+  &:focus {
+    border-color: shade($default-border-color, 50%);
+  }
+  &:invalid {
+    border-left-color: $error-color;
+    &:focus {
+      border-color: tint($error-color, 50%);
+    }
+  }
+  &:required {
+    border-left-color: $primary-color;
+    &:focus {
+      border-color: $primary-color;
+    }
+    &:invalid {
+      border-left-color: $error-color;
+      &:focus {
+        border-color: tint($error-color, 50%);
+      }
+    }
+  }
+}
+
+input {
+  &.brl-input-flat {
+    /* FLAT THEME INPUT */
+    background-color: transparent;
+    border-color: transparent;
+    border-bottom-color: $default-border-color;
+    &:focus {
+      border-bottom-color: shade($default-border-color, 50%);
+    }
+    &:invalid {
+      border-bottom-color: tint($error-color, 50%);
+      &:focus {
+        border-bottom-color: $error-color;
+      }
+    }
+    &:required {
+      border-color: transparent;
+      border-bottom-color: $primary-color;
+      &:focus {
+        border-bottom-color: $primary-color;
+      }
+      &:invalid {
+        border-color: transparent;
+        border-bottom-color: tint($error-color, 50%);
+        &:focus {
+          border-color: transparent;
+          border-bottom-color: $error-color;
+        }
+      }
+    }
+  }
+}
+
+/* REQUIRED */
+.brl-field.required {
+  & > label {
+    position: relative;
+    &::before {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0rem .2rem 0rem 0rem;
+      color: $primary-color;
+      line-height: 1rem;
+      content: '*';
+    }
+  }
+}
+
+/* TEXTAREA */
+textarea {
+  resize: vertical;
+  max-height: 10rem;
+  min-height: 4rem;
+  &:not([rows]) {
+    height: 8rem;
+  }
+}
+
+/* PLACEHOLDER */
+/* browsers require these rules separate */
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: tint($text-color, 70%);
+}
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  color: tint($text-color, 70%);
+}
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  color: tint($text-color, 70%);
+}
+
+/* DROPDOWN */
+.brl-dropdown {
+  position: relative;
+  display: block;
+  outline: none;
+  text-align: left;
+  box-shadow: 0rem 0rem 0rem 0rem transparent inset;
+  transition: all .1s ease;
+  background-color: #fff;
+  cursor: pointer;
+  &::before {
+    position: absolute;
+    font-family: 'brl-font-icons' !important;
+    color: $default-border-color;
+    content: '\EA05';
+    right: .75rem;
+    line-height: 2.2rem;
+  }
+  & select {
+    z-index: 9999;
+    padding-right: 2rem;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    &:required {
+      border-left-color: $primary-color;
+      &:focus {
+        border-color: $primary-color;
+      }
+      &:invalid {
+        border-left-color: $error-color;
+        &:focus {
+          border-color: tint($error-color, 50%);
+        }
+      }
+    }
+  }
+}
+
+/* INPUT RADIO */
+.brl-input-radio {
+  @extend .brl-hbox;
+  @extend .brl-items-center;
+  input {
+    @extend .brl-my-0;
+    @extend .brl-mx-1;
+  }
+  label {
+    font-weight: $font-regular !important;
+  }
+  &:hover {
+    input, label {
+      cursor: pointer;
+    }
+    input {
+      box-shadow: 0px 0px 0.1rem 0px rgba(0, 0, 0, .25);
+    }
+    label {
+      color: $primary-color;
+    }
+  }
+}
+
+input[type="radio"]:checked + label {
+  color: $primary-color;
+}
+
+/* CHECKBOX */
+.brl-checkbox,
+.brl-radio {
+  position: relative;
+  display: inline-block;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  outline: none;
+  vertical-align: baseline;
+  font-style: normal;
+  min-height: 1rem;
+  font-size: 1rem;
+  line-height: 1rem;
+  min-width: 1rem;
+}
+
+/* HTML checkbox */
+.brl-checkbox input[type="checkbox"],
+.brl-radio input[type="radio"] {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  opacity: 0 !important;
+  outline: none;
+  z-index: 3;
+  width: 1rem;
+  height: 1rem;
+}
+
+.brl-checkbox > label,
+.brl-radio > label {
+  @extend .brl-pl-4;
+  cursor: auto;
+  position: relative;
+  display: block;
+  outline: none;
+  font-size: .9em;
+}
+
+
+.brl-checkbox {
+  label {
+    &:before {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      width: 1rem;
+      height: 1rem;
+      content: '';
+      background: #fff;
+      border-radius: 0px;
+      transition: all 0.1s ease;
+      border: 1px solid $default-border-color;
+    }
+  }
+}
+
+/* FIELDSET */
+/* Reseting fieldset */
+
+legend {
+  padding: 0px;
+  display: table;
+}
+
+fieldset {
+  border: 0px;
+  padding: 0.01em 0em 0em 0em;
+  margin: 0px;
+  min-width: 0px;
+  width: inherit;
+}
+
+body:not(:-moz-handler-blocked) fieldset {
+  display: table-cell;
+}
+
+
+
+
+
